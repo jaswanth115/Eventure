@@ -1,35 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import './Home.css'; // Import the CSS file
 
 function Home() {
-  const [showCard, setShowCard] = useState(true);
-
-  const handleButtonClick = (role) => {
-    // Logic for role selection
-    console.log(`${role} selected`);
-
-    // Hide the card and navigate to the home page or perform other actions
-    setShowCard(false);
-    // You can add navigation logic here if needed
-    // e.g., navigate('/home');
-  };
+  const { name } = useParams();  // Extract name from URL parameters
 
   return (
     <div className="home-container">
-      {showCard && (
-        <div className="popup-card">
-          <div className="popup-content">
-            <h2>Welcome!</h2>
-            <p>Select your role:</p>
-            <button className="btn btn-primary" onClick={() => handleButtonClick('Event Organizers')}>
-              Event Organizers
-            </button>
-            <button className="btn btn-secondary" onClick={() => handleButtonClick('Event Finders')}>
-              Event Finders
-            </button>
-          </div>
-        </div>
-      )}
+      <h1>Hello {name}! Welcome to Home Page.</h1>
     </div>
   );
 }

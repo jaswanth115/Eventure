@@ -15,6 +15,7 @@ const EmployeeSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    type: { type: String, enum: ['organizer', 'finder'], default: null }
 });
 
 const EmployeeModel = mongoose.model('Employee', EmployeeSchema);
